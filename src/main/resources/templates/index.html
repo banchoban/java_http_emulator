@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>HTTP emulator</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Test emulator:</h1>
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+
+<form th:action="@{/postTest}"
+      th:object="${testModel}" method="POST">
+    Random Value:
+    <input type="text" th:field="*{randValue}" />
+    <br/>
+    Counter Value:
+    <input type="text" th:field="*{counterValue}" />
+    <br/>
+    Log Message
+    <input type="text" th:field="*{toLog}" />
+    <br/>
+    <input type="submit" value="Екарный бабай, жми!!!" />
+</form>
+
+<br/>
+
+
+</body>
+</html>

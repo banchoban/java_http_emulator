@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="30" strict="true">
+    <Properties>
+        <Property name="filename">target/log/log.log</Property>
+    </Properties>
+
+    <Appenders>
+        <!--
+        <Appender type="Console" name="STDOUT">
+            <Layout type="PatternLayout" pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p - %m%n"/>
+            <Filters>
+                <Filter type="MarkerFilter" marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </Appender>
+        -->
+
+        <Appender type="File" name="File" fileName="${filename}">
+            <Layout type="PatternLayout">
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p - %m%n</Pattern>
+            </Layout>
+        </Appender>
+    </Appenders>
+
+    <Loggers>
+        <!--
+        <Logger name="org.apache.logging.log4j.test1" level="debug" additivity="false">
+            <Filter type="ThreadContextMapFilter">
+                <KeyValuePair key="test" value="123"/>
+            </Filter>
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        -->
+
+        <!--
+        <Logger name="org.apache.logging.log4j.HttpEmulatorController" level="info" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
+        -->
+
+        <Root level="info" additivity="false">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
